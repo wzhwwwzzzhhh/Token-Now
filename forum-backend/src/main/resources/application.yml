@@ -1,0 +1,67 @@
+server:
+  port: 9000
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+spring:
+  profiles:
+    active: dev
+  # 数据库配置
+  datasource:
+    url: ${forum.datasource.url}
+    username: ${forum.datasource.username}
+    password: ${forum.datasource.password}
+    driver-class-name: ${forum.datasource.driver-class-name}
+
+  # Redis配置
+  redis:
+    host: ${forum.redis.host}
+    port: ${forum.redis.port}
+    password: ${forum.redis.password}
+    database: ${forum.redis.database}
+
+  # RabbitMQ配置
+  rabbitmq:
+    host: ${forum.rabbitmq.host}
+    port: ${forum.rabbitmq.port}
+    username: ${forum.rabbitmq.username}
+    password: ${forum.rabbitmq.password}
+    virtual-host: ${forum.rabbitmq.virtual-host}
+
+# MyBatis Plus配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.forum.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      fashion:
+        mapper: debug
+        service: debug
+        controller: debug
+
+
+# 自定义配置
+forum:
+  # JWT配置
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    secret-key: forum_secret_key_2026_secure_password
+    # 设置jwt过期时间
+    ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    token-name: token
+
+  alioss:
+    endpoint: ${forum.alioss.endpoint}
+    access-key-id: ${forum.alioss.access-key-id}
+    access-key-secret: ${forum.alioss.access-key-secret}
+    bucket-name: ${forum.alioss.bucket-name}
+
+

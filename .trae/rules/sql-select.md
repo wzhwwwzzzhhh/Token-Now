@@ -1,0 +1,1 @@
+每次查询数据库相关数据时，在D:\market-handsome\Token-Now\mysql目录下了解我的数据库结构，确保前后端数据交互一致。
